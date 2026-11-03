@@ -1,0 +1,11 @@
+name: Forged Run
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  forged:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo forged run in base repo
