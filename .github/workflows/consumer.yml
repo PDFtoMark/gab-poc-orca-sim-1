@@ -1,0 +1,12 @@
+name: Consumer Probe
+on:
+  workflow_run:
+    workflows: ["Forged Run"]
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  consume:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "consumer ran for ${{ github.event.workflow_run.head_branch }} conclusion=${{ github.event.workflow_run.conclusion }}"
